@@ -7,8 +7,18 @@ function create (req,res){
             content:req.body.content,
             image_url:req.body.image_url,
             categoryId:req.body.categoryId,
-            userId:req.body.userId,
-           
+            userId:req.body.userId,   
+    }
+
+    const schema = { title:{type:"string",optional:false,max:100}}
+    const v = new Validator();
+    const validResponse = v.validate(post,schema);
+
+    if(validResponse !== true){
+        res.status(400).json({
+                message:"Validation Failed.",
+                errors:validResponse
+            })    
     }
 
     models.Post.create(post).then(result=>{
