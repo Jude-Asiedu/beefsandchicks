@@ -1,3 +1,4 @@
+const Validator = require ('fastest-validator');
 const models = require('../models');
 
 function create (req,res){
@@ -30,11 +31,17 @@ function selectedOne(req,res){
     const postId = req.params.id;
 
     models.Post.findByPk(postId).then(result=>{
+        if(result){
          res.status(201).json({
             responseMessage:"Operation Successful",
             responseCode:200,
             data:result
-        })
+        })}else{
+               res.status(404).json({
+            responseMessage:"No data found",
+            responseCode:404,
+            data:result})
+        }
     }).catch(error=>{
          res.status(404).json({
             message:"Details Not Found ",
@@ -86,7 +93,7 @@ function updatePost (req,res){
 }
 
 function destroy(){
-    
+
 }
 
 module.exports = {
