@@ -9,6 +9,7 @@ const healtController = require('../controller/health.controller')
 router.get('/users',userController.index);
 
 // POST
+
 router.get('/post',postController.index);
 router.get('/post/:id',postController.singlePost);
 router.post('/post',postController.create);
