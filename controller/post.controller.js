@@ -111,6 +111,4 @@ module.exports = {
     singlePost:selectedOne,
     index:index,
     update:updatePost
-
-
 }
