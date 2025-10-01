@@ -4,7 +4,8 @@
   "description": "A blog rest api with node and mysql",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "author": "A.L.F.R.E.D",
   "license": "ISC",
